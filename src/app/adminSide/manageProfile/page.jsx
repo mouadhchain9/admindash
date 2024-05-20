@@ -89,18 +89,18 @@ const page = () => {
                   </div>
                 </div>
                 <div className='subTableContainer'>
-                {activeBtn === "All" && (
-                  <ChildTable children={children} filterAges={""} />
-                )}
-                {activeBtn === "3 months - 1 year" && (
-                  <ChildTable children={children} filterAges={"3 month- 1 Year"} />
-                )}
-                {activeBtn === "1-2years" && (
-                  <ChildTable children={children} filterAges={"1 Year- 2 Years"} />
-                )}
-                {activeBtn === "2-3years" && (
-                  <ChildTable children={children} filterAges={"2 Year- 3 Years"} />
-                )}
+                  {activeBtn === "All" && (
+                    <ChildTable children={children} filterAges={""} />
+                  )}
+                  {activeBtn === "3 months - 1 year" && (
+                    <ChildTable children={children} filterAges={"3 month- 1 Year"} />
+                  )}
+                  {activeBtn === "1-2years" && (
+                    <ChildTable children={children} filterAges={"1 Year- 2 Years"} />
+                  )}
+                  {activeBtn === "2-3years" && (
+                    <ChildTable children={children} filterAges={"2 Year- 3 Years"} />
+                  )}
                 </div>
               </div>
             </div>

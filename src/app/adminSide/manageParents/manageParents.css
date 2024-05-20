@@ -33,10 +33,18 @@
     color: black;
     min-height: 70vh;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    /*border-radius: 20px;*/
+    width: calc(100% - 20px);
+    border-radius: 20px;
     overflow: hidden;
     margin-bottom: 117px;
+}
+
+.subTableContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:hidden;
+    min-height: 500px;
 }
 
 .title {
@@ -52,54 +60,13 @@
     }
 }
 
-
-.subTableContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow:hidden;
-    min-height: 500px;
-}
-/*/////////////        transfered to ChildTable.css       ////////////////*//*
- 
-.table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width:400px;
-    width: calc(100% - 40px);
-    text-align: left;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-}
-
-caption {
-    margin-bottom: 20px;
+.subTitle {
+    padding: 10px 0 10px 10px;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 
-
-thead tr {
-    background-color: #009879;
-    color: white;
-    font-weight: bold;
-}
-
-td, th {
-    padding: 12px 15px;
-}
-
-tbody tr {
-    border-bottom: 1px solid lightgrey;
-}
-
-tbody tr:nth-of-type(even)  {
-    background-color: #f3f3f3;
-}
-tbody tr:last-of-type  {
-    border-bottom: 2px solid #009879;
-}
-*/
 .toggleWindow {
     display: flex;
     flex-direction: row;
@@ -130,3 +97,51 @@ tbody tr:last-of-type  {
 
     }
 }
+
+
+.title {
+    display: flex;
+    width: 100%;
+    padding: 10px 0 20px 0;
+    align-items:center;
+    justify-content:space-between;
+
+    h2 {
+        margin-left: 20px;
+        padding : 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+
+    .addButtonContainer {
+        margin-right: 20px;
+        width: 150px;
+        border: none;
+        height: 49px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+
+        .addBtn {
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            color: #27374d;
+            height: 100%;
+            transition: box-shadow 0.5s, color 0.25s;
+        }
+        .addBtn:hover {
+            background-color: lightblue;
+            color: white;
+            cursor: pointer;
+        }
+        .addBtn:active {
+            background-color: cyan;
+            color: white;
+        }
+    }
+}
+
