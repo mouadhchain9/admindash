@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    position: relative;
+    left:300px;
+    width: calc(100% - 300px);
+    height: 100vh;
+    background-color:#fafafa;
+    overflow: hidden;
+
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.dashboard {
+    width: 300px;
+    position: fixed;
+}
+
+/*-----------------------------------------------------------------------*/
+
+
+.returnBtn {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 100px;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: calc(100% - 40px);
+    font-weight: 600;
+    font-size: 20px;
+
+    .returnBtnBox {
+        transition: 0.2s ease-in-out;
+        padding: 5px 20px 10px 15px;
+        border-radius: 15px;
+        background: #E5E4E2;
+
+
+        a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 50px;
+            padding-top: 4px;
+            text-decoration: none;
+        }
+
+        a:link {
+          color: #27374d;
+          background-color: transparent;
+        }
+
+        a:visited {
+          color: #27374d;
+          background-color: transparent;
+        }
+
+
+        a:hover {
+          color: #dde6ed;
+            p {
+                color: #dde6ed;
+            }
+        }
+
+    }
+    .returnBtnBox:hover {
+        color: #dde6ed;
+        background-color: #F86A9A; 
+            a {
+          color: #dde6ed;
+            p {
+                color: #dde6ed;
+            }
+        }
+    }
+}
+
+
+
+.badgeContainer {
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    background-color: #ffffff; /* White background */
+    min-width: auto;
+    height: 270px;
+    overflow: hidden;
+}
+
+
+/* Container styling */
+.cartContainer {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 40px);
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Body styling */
+.cartBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: calc(100% - 500px);
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    background-color: #ffffff; /* White background */
+}
+
+.photo {
+    width: 120px; /* Adjust size as needed */
+    height: 120px; /* Adjust size as needed */
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover; /* Maintain aspect ratio */
+    border: 3px solid #ffffff; /* White border around photo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+/* Information styling */
+.info {
+    /*width: calc(100% - 120px);*/
+    width: calc(100% - 50px);
+}
+
+.infoBox {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+}
+
+/* Label styling */
+.label {
+    font-weight: bold;
+    margin-right: 5px;
+    width: 120px;
+    display: inline-block;
+    border-right: 1px solid lightgrey;
+}
+
+/* Child detail paragraph styling */
+.info p {
+    border: 1px solid lightgrey;
+    padding: 10px 5px;
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333333; /* Dark gray text color */
+    
+    span {
+        min-width: 200px;
+    }
+}
+
+
+.title {
+    margin-left: 10px;
+}
+
+.subTitle {
+    margin: 10px;
+}
+
+/*------------------ profiles ---------------------*/
+.profilesContainer {
+    /*border: 1px solid black;*/
+    margin: 30px;
+    color: black;
+    min-height: 70vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    border-radius: 20px;
+    overflow:hidden;
+}
+
+
+.toggleWindow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .btnContainer {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        background-color: #aeeeee;
+
+        .toggleBtn {
+            font-size: 18px;
+            color: white;
+            background: transparent;
+            border-width: 0px;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            transition: box-shadow 0.5s, color 0.25s;
+        }
+        .toggleBtn:hover,
+        .toggleBtn:focus {
+            box-shadow: inset 0 -81px 0 0 lightblue; /*inside fill color*/
+            border-color: lightblue; /*border fill color*/
+            color: white; /* #dde6ed */
+        }
+
+    }
+
+}

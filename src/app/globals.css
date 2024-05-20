@@ -1,0 +1,67 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+
+.home {
+  display: flex;
+  flex-direction: column;
+  /* Add any additional styles as needed */
+}
+
+.dashboard {
+  display: flex;
+  flex: 1;
+  /* Add any additional styles as needed */
+}
+
+.content {
+  flex: 1;
+  /* Add any additional styles as needed */
+}
+:root{
+
+  --yellow :#F9B002 ;
+  --orange : #ED6A3F;
+  --black-bleu : #033b62;
+  --gray : #788097;
+  --purple :#56509F;
+  --pink : #F86A9A;
+  --glass : rgba(255,255,255,0.45);
+  /* --boxShadow : 0px 19px 60px rgb(0 0 0 /8%);
+  --smboxShadow : -79px 51px 60px rgba(0,0,0,0.08); */
+  --activeItem :#f799a354;
+  --blue : #2AAAE2;
+  --green : #44CD66;
+  --lightblue: #e8f9ff;
+}

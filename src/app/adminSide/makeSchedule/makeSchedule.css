@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    position: relative;
+    left:300px;
+    width: calc(100% - 300px);
+    height: 100vh;
+    background-color:#fafafa;
+    overflow: hidden;
+
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: calc(100vh - 79px);
+
+}
+
+.dashboard {
+    width: 300px;
+    position: absolute;
+}
+/* ------------------------------------------------------------ */
+.tableContainer {
+    /*border: 1px solid black;*/
+    color: black;
+    min-height: 70vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /*border-radius: 20px;*/
+    overflow: hidden;
+    margin-bottom: 117px;
+}
+
+.title {
+    display: flex;
+    width: 90%;
+    padding: 10px 0 20px 0;
+
+    h2 {
+        margin-left: 20px;
+        padding : 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    }
+}
+
+
+.subTableContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:hidden;
+    min-height: 500px;
+}
+/*/////////////        transfered to ChildTable.css       ////////////////*//*
+ 
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width:400px;
+    width: calc(100% - 40px);
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+caption {
+    margin-bottom: 20px;
+}
+
+
+
+thead tr {
+    background-color: #009879;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid lightgrey;
+}
+
+tbody tr:nth-of-type(even)  {
+    background-color: #f3f3f3;
+}
+tbody tr:last-of-type  {
+    border-bottom: 2px solid #009879;
+}
+*/
+.toggleWindow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .btnContainer {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        background-color: #aeeeee;
+
+        .toggleBtn {
+            font-size: 18px;
+            color: white;
+            background: transparent;
+            border-width: 0px;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            transition: box-shadow 0.5s, color 0.25s;
+        }
+        .toggleBtn:hover,
+        .toggleBtn:focus {
+            box-shadow: inset 0 -81px 0 0 lightblue; /*inside fill color*/
+            border-color: lightblue; /*border fill color*/
+            color: white; /* #dde6ed */
+        }
+
+    }
+}

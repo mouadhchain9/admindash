@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    position: relative;
+    left:300px;
+    width: calc(100% - 300px);
+    height: 100vh;
+    background-color:#fafafa;
+    overflow: hidden;
+
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: calc(100vh - 79px);
+
+}
+
+.dashboard {
+    width: 300px;
+    position: absolute;
+}
+/*-----------------------------------------------------------------------*/
+
+
+
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    .toggleWindow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    
+        .btnContainer {
+            display: flex;
+            width: 50%;
+            justify-content: space-around;
+            background-color: #aeeeee;
+
+            .toggleBtn {
+                font-size: 18px;
+                color: #27374d;
+                background: transparent;
+                border-width: 0px;
+                padding: 30px;
+                width: 100%;
+                height: 100%;
+                transition: box-shadow 0.5s, color 0.25s;
+            }
+            .toggleBtn:hover,
+            .toggleBtn:focus {
+                box-shadow: inset 0 -81px 0 0 lightblue; /*inside fill color*/
+                border-color: lightblue; /*border fill color*/
+                color: white; /* #dde6ed */
+            }
+
+        }
+
+        .btn1 {
+            border-right: 2px solid none ;
+        }
+    }
+
+    .chatWindow {
+        background-color: lightblue;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
