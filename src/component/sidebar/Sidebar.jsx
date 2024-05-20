@@ -2,6 +2,7 @@ import React from 'react'
 import { BiHome,BiBookAlt,BiMessage,BiSolidReport,BiStats,BiTask,BiHelpCircle  } from 'react-icons/bi';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import './sidebar.css'
 
 const Sidebar = () => {
@@ -36,6 +37,10 @@ const Sidebar = () => {
 
             < a href='/adminSide/manageDigitalFile' className='item'>
                 <BiHelpCircle className='icon'/>Manage Digital File
+            </a>
+
+            < a href='/adminSide/manageParents' className='item'>
+                <ManageAccountsIcon className='icon'/>Manage Parents
             </a>
         </div>
     </div>

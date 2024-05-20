@@ -3,9 +3,6 @@
     padding: 0;
 }
 
-html {
-  background-color: lightgrey;
-}
 
 .content {
     position: relative;
@@ -31,6 +28,7 @@ html {
 }
 
 /*---------------------------------------------------------------------*/
+
 
 .returnBtn {
     display: flex;
@@ -95,7 +93,7 @@ html {
         border-radius: 15px;
         background: #E5E4E2;
         margin-left: 10px;
-        width: 265px;
+        width: 268px;
     }
 }
 
@@ -296,4 +294,13 @@ input[type="file"] {
       box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
     }
   } 
+}
+
+
+
+.payementinfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid lightgrey;
 }

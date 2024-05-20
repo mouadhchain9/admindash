@@ -8,7 +8,7 @@ const QrCodeScanner = () => {
   const router = useRouter();
   const [qrCodeResult, setQrCodeResult] = useState('');
   const [userId, setUserId] = useState('');
-  const [scanning, setScanning] = useState(false);
+  const [scanning, setScanning] = useState();
   const html5QrcodeScannerRef = useRef(null);
 
   const parseCustomFormat = (str) => {
@@ -68,6 +68,7 @@ const QrCodeScanner = () => {
   };
 
   const stopScan = () => {
+    setScanning(false);
     if (html5QrcodeScannerRef.current) {
       html5QrcodeScannerRef.current.stop()
         .then(() => {
@@ -77,13 +78,12 @@ const QrCodeScanner = () => {
           console.error('Failed to stop scan', err);
         });
     }
-    setScanning(false);
 
   };
 
   return (
     <div>
-      <button style={{fontWeight:"bold"}} className='scan' onClick={startScan}>Scan Now</button>
+      <button className='scan' onClick={startScan}>Scan Now</button>
       {scanning && (
         <div className="modal">
           <div className="modal-content">

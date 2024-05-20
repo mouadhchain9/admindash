@@ -1,89 +1,109 @@
 "use client";
 import Navbar from '../../../component/navbar/Navbar';
 import Sidebar from '../../../component/sidebar/Sidebar';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-import './add.css'
+import './add.css';
 
-
-const page = () => {
-  const [isFormValid, setIsFormValid] = useState(false)
+export default function Add() {
+  const router = useRouter();
+  const [isFormValid, setIsFormValid] = useState(true);
   const [photoPreview, setPhotoPreview] = useState(null);
-  const [child, setChild] = useState({
-    firstName:'',
-    lastName:'',
-    birthdate:'',
-    gender:'',
-    id:'',
-    section:{
-      ages:'',
-      sectionName:'',
-    },
-    parent:{
-      firstName:'',
-      lastName:'',
-      address:'',
-      birthdate:'',
-      gender:'',
-      email:'',
-      password:'',
-      status:'',
-      role:'',
-      phoneNumber:'',
-      checkout:'',
-    },
+  const [parent, setParent] = useState({
+    id: "",
+    firstName: "",
+    lastName: "",
+    birthdate: "",
+    gender: "MALE",
+    phoneNumber: "",
+    address: "",
+    email: "",
+    username: "",
+    password: "",
+    role: "PARENT",
+    status: "VALID"
   });
 
-  // change handlers for fields : -------------------------------------
-
-const handleChildChange = (e) => {
-  const { name, value } = e.target;
-  setChild(prevChild => ({
-    ...prevChild,
-    [name]: value
-  }));
-};
-
-const handleParentChange = (e) => {
-  const { name, value } = e.target;
-  setChild(prevChild => ({
-    ...prevChild,
-    parent: {
-      ...prevChild.parent,
-      [name]: value
-    }
-  }));
-};
-
-const handleSectionChange = (e) => {
-  const { name, value } = e.target;
-  setChild(prevChild => ({
-    ...prevChild,
+  const [child, setChild] = useState({
+    id: "",
+    idParent:"",
+    firstName: "",
+    lastName: "",
+    birthdate: "",
+    gender: "MALE",
+    status: "VALID",
     section: {
-      ...prevChild.section,
-      [name]: value
+      id: ''
     }
-  }));
+  });
+
+
+
+  // Change handlers for fields
+  const handleChildChange = (e) => {
+    const { name, value } = e.target;
+    setChild(prevChild => ({
+      ...prevChild,
+      [name]: value
+    }));
+  };
+
+  const handleParentChange = (e) => {
+    const { name, value } = e.target;
+    setParent(prevParent => ({
+      ...prevParent,
+      [name]: value
+    }));
+  };
+
+
+
+  const handleSectionChange = (e) => {
+    const { value } = e.target;
+    setChild(prevChild => ({
+      ...prevChild,
+      section: {
+        ...prevChild.section,
+        id: value
+      }
+    }));
+  };
+
+
+
+// Data save/cancel handlers
+const handleSave = async () => {
+  const confirmation = window.confirm('Are you sure you want to save this account?');
+  if (confirmation) {
+    try {
+      // Save parent
+      const parentResponse = await axios.post(`http://localhost:8081/parents/parent/Add`, parent);
+      const parentId = parentResponse.data; // Assuming the ID is returned directly
+      
+      console.log('Parent account saved successfully with ID:', parentId);
+      
+      // Update child with parent ID
+      const updatedChild = { ...child, idParent: parentId };
+      
+      // Log the child payload
+      console.log('Child payload to be sent:', updatedChild);
+      
+      // Save child
+      const childResponse = await axios.post(`http://localhost:8081/parents/parent/Addchild`, updatedChild);
+      console.log('Child account saved successfully:', childResponse.data);
+
+      router.push('./#');
+    } catch (error) {
+      console.error('Error updating data:', error, '\n please try again.');
+    }
+  } else {
+    console.log('Save operation canceled');
+  }
 };
 
-//----------------------- data save/cancel ---------------------------
-
-  const handleSave = async () => {  // to be made
-  /*
-    const confirmation = window.confirm('Are you sure you want to save this account?');
-    if (confirmation) {
-      try {
-        await axios.post(`http://localhost:8081/staff/save/`, staff);
-        console.log('Staff account saved successfully:', staff);
-      } catch (error) {
-        console.error('Error creating staff data:', error, '\n please try again.');
-      }
-    } else {
-      console.log('Save operation canceled');
-    }*/
-  };
 
   const handleCancel = () => {
     const confirmation = window.confirm('Are you sure you want to cancel?');
@@ -93,9 +113,7 @@ const handleSectionChange = (e) => {
     }
   };
 
-
-//---------------------- photo rendering -----------------------
-
+  // Photo rendering
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -107,9 +125,7 @@ const handleSectionChange = (e) => {
     }
   };
 
-
 // -------------- check if form is valid -------------------------
-
   useEffect(() => {
     const handleFormValidity = () => {
       const childForm = document.getElementById('childForm');
@@ -123,12 +139,10 @@ const handleSectionChange = (e) => {
     };
 
     handleFormValidity();
-  }, [child]);
+  }, [child, parent]);
 
 
-
-  
-  return (
+ return (
     <main>
       <div className='home'>
         <div className="dashboard">
@@ -144,7 +158,7 @@ const handleSectionChange = (e) => {
                 </a>
               </div> 
               <div className='title'>
-                <h3>Create a new Account :</h3>
+                <h3>Create a New Account :</h3>
               </div>
             </div> 
             <div className='subTitle'>
@@ -171,6 +185,8 @@ const handleSectionChange = (e) => {
                       <input className='input' type='text' name='firstName' onChange={handleChildChange} value={child.firstName} required/>
                       </div>
                     </div>
+
+                    
                     <div className='formGroup'>
                       <label>Last Name:</label>
                       <div className="text">
@@ -190,20 +206,19 @@ const handleSectionChange = (e) => {
                       <label>Gender:</label>
                       <div className="text">
                       <select className="input" name='gender' onChange={handleChildChange} value={child.gender} required>
-                        <option className="input" selected> --- </option>
-                        <option className="input" value='male'>Male</option>
-                        <option className="input" value='female'>Female</option>
+                        <option className="input" value='MALE'>Male</option>
+                        <option className="input" value='FEMALE'>Female</option>
                       </select>
                       </div>
                     </div>
                     <div className='formGroup'>
                       <label>Section:</label>
                       <div className="text">
-                        <select className="input" name='type' onChange={handleSectionChange} value={child.section.id} required>
-                          <option> --- </option>
-                          <option value='1'>1</option>
-                          <option value='2'>2</option>
-                          <option value='3'>3</option>
+                        <select className="input" name='section' onChange={handleSectionChange} value={child.section.id} required>
+                          <option value='1'>Infants --- 3 month- 1 Year</option>
+                          <option value='2'>mini-Toddlers --- 1 Year- 2 Years</option>
+                          <option value='3'>Toddlers --- 2 Year- 3 Years</option>
+                          <option value='4'>Preschoolers --- 4 Years- 5 Years</option>
                         </select>
                       </div>
                     </div>
@@ -214,7 +229,7 @@ const handleSectionChange = (e) => {
             <div className='subTitle2'>
               <h3> Parent informations :</h3>
             </div> 
-            <div className='editContainer' style={{marginBottom: '20px'}}>
+            <div className='editContainer' style={{marginBottom: ''}}>
               <div className='photoContainer'>
                 <div className='photo'
                  style={{
@@ -230,27 +245,26 @@ const handleSectionChange = (e) => {
                     <div className='formGroup'>
                       <label>First Name:</label>
                       <div className="text">
-                      <input className='input' type='text' name='firstName' onChange={handleParentChange} value={child.parent.firstName} required/>
+                      <input className='input' type='text' name='firstName' onChange={handleParentChange} value={parent.firstName} required/>
                       </div>
                     </div>
                     <div className='formGroup'>
                       <label>Last Name:</label>
                       <div className="text">
-                      <input className='input' type='text' name='lastName' onChange={handleParentChange} value={child.parent.lastName} required/>
+                      <input className='input' type='text' name='lastName' onChange={handleParentChange} value={parent.lastName} required/>
                       </div>
                     </div>
                     
                     <div className='formGroup'>
                       <label>Birthdate:</label>
                       <div className="text">
-                      <input className='input' type='date' name='birthdate' onChange={handleParentChange} value={child.parent.birthdate} required/>
+                      <input className='input' type='date' name='birthdate' onChange={handleParentChange} value={parent.birthdate} required/>
                       </div>
                     </div>
                     <div className='formGroup'>
                       <label>Gender:</label>
                       <div className="text">
-                      <select className="input" name='gender' onChange={handleParentChange} value={child.parent.gender} required>
-                        <option className="input" selected> --- </option>
+                      <select className="input" name='gender' onChange={handleParentChange} value={parent.gender} required>
                         <option className="input" value='MALE'>Male</option>
                         <option className="input" value='FEMALE'>Female</option>
                       </select>
@@ -259,7 +273,7 @@ const handleSectionChange = (e) => {
                     <div className='formGroup'>
                       <label>Phone Number:</label>
                       <div className="text">
-                      <input className='input' type='number' name='phoneNumber' onChange={handleParentChange} value={child.parent.phoneNumber} required/>
+                      <input className='input' type='number' name='phoneNumber' onChange={handleParentChange} value={parent.phoneNumber} required/>
                       </div>
                     </div>
                   </div>
@@ -267,25 +281,25 @@ const handleSectionChange = (e) => {
                     <div className='formGroup'>
                       <label>User-name:</label>
                       <div className="text">
-                      <input className='input' type='text' name='username' onChange={handleParentChange} value={child.parent.username} required/>
+                      <input className='input' type='text' name='username' onChange={handleParentChange} value={parent.username} required/>
                       </div>
                     </div>                    
                     <div className='formGroup'>
                       <label>Address:</label>
                       <div className="text">
-                      <input className='input' type='address' name='address' onChange={handleParentChange} value={child.parent.address} required/>
+                      <input className='input' type='address' name='address' onChange={handleParentChange} value={parent.address} required/>
                       </div>
                     </div>
                     <div className='formGroup'>
                       <label>Email:</label>
                       <div className="text">
-                      <input className='input' type='email' name='email' onChange={handleParentChange} value={child.parent.email} required/>
+                      <input className='input' type='email' name='email' onChange={handleParentChange} value={parent.email} required/>
                       </div>
                     </div>
                     <div className='formGroup'>
                       <label>Password:</label>
                       <div className="text">
-                      <input className='input' type='password' name='password' onChange={handleParentChange} value={child.parent.password} required/>
+                      <input className='input' type='password' name='password' onChange={handleParentChange} value={parent.password} required/>
                       </div>
                     </div>
                     <div className='formButtons'>
@@ -300,7 +314,45 @@ const handleSectionChange = (e) => {
                 </form>
               </div>
             </div>
-
+            <div className='subTitle2' style={{borderTop: ''}}>
+              <h3> Payement information :</h3>
+            </div> 
+            <div className='editContainer' style={{marginBottom: '20px'}} >
+              <div className='photoContainer'>
+                <div className='photo'
+                 style={{
+                  background: 'transparent',
+                  boxShadow: 'none',
+                  border: 'none'
+                }}>
+                </div>
+              </div>
+              <div className='mainEdit'>
+                <form id="parentForm" className='subEdit' style={{}}>
+                  <div className='halfEdit'>
+                  </div>
+                  <div className='halfEdit'>
+                  <div className='payementinfo'>
+                    <p>Registration fees (1 month)</p>
+                    <p>(DZD) 13000.00</p>
+                  </div>
+                  <div className='payementinfo'>
+                    <p>Pre-Registration(-2000DZD) ?</p>
+                    <p>no</p>
+                  </div>
+                  <div className='payementinfo'>
+                    <p>special offers ?</p>
+                    <p>-0.00</p>
+                  </div>
+                  <div className='payementinfo'>
+                    <h3>Total :</h3>
+                    <h4>(DZD) 11000.00</h4>
+                  </div>
+                  
+                  </div>
+                </form>
+              </div>
+            </div>
 
 
           </div>
@@ -309,5 +361,3 @@ const handleSectionChange = (e) => {
     </main>
   );
 }
-
-export default page;

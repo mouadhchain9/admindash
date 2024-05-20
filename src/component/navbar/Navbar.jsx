@@ -25,17 +25,13 @@ const Navbar = () => {
                     <LanguageIcon className='icon'/>English
                 </div>
                 <div className='item'>
-                    <DarkModeIcon className='icon' 
-                    //    onClick={()=>dispatch({type:"TOGGLE"})} 
-
-                    />
+                    <DarkModeIcon className='icon' />
                 </div>
                 <div className='item'>
                     <CloseFullscreenIcon className='icon'/>
                 </div>
                 <div className='item'>
-                <Scanner/>
-                  
+                <Scanner />
                 </div>
                 <div className='item'>
                     <a href="/adminSide/chat">
