@@ -64,3 +64,34 @@ p {
         text-decoration: none;
     }
 }
+
+
+
+.tableBtn {
+    padding: 10px;
+    border:none;
+    background-color: lightblue;
+    border-radius: 5px;
+    margin: 5px;
+    transition: box-shadow 0.5s, color 0.25s;
+    font-weight: bold;
+    text-decoration: none;
+
+    .link {
+        text-decoration: none;
+        color: black;
+        transition: box-shadow 0.5s, color 0.25s;
+    }
+}
+.delete:hover {
+    background-color: red;
+    color: white;
+}
+.validate:hover{
+    background-color: #00FF40;
+    color: white;
+
+    .link {
+        color: white;
+    }
+}

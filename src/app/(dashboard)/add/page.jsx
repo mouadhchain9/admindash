@@ -36,7 +36,7 @@ export default function Add() {
     gender: "MALE",
     status: "VALID",
     section: {
-      id: ''
+      id: '1'
     }
   });
 

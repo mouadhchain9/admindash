@@ -46,8 +46,8 @@ const ChildTable = ({ children, filterAges }) => {
                     {child.childRegistration.payed.toString()}
                   </td>
                   <td>
-                    <button className="btn">
-                      <Link href={'./manageDigitalFile/' + child.id}>edit</Link>
+                    <button className="validate tableBtn">
+                      <Link className="link" href={'./manageDigitalFile/' + child.id}>edit</Link>
                     </button>
                   </td>
                   {/* Add more table cells as needed */}

@@ -31,10 +31,10 @@ const ParentTable = ({ parents }) => {
                 <td>{parent.gender}</td>
                 <td>{parent.phoneNumber}</td>
                 <td>{parent.email}</td>
-                <td>{/*parent.username*/}</td>
+                <td>{parent.username}</td>
                 <td>
-                  <button className="btn">
-                    <Link href={'./manageParents/' + parent.id}>add Child</Link>
+                  <button className="validate tableBtn">
+                    <Link className="link" href={'./manageParents/' + parent.id}>add Child</Link>
                   </button>
                 </td>
               </tr>

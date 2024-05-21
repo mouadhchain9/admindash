@@ -36,9 +36,12 @@ export default function Edit({params}) {
       checkout:'',
     },
     childRegistration:{
+      id:'',
       payed:'',
       lastPaymentDate:'',
       paymentMethode:'',
+      payTime: '',
+      payed: '',
       amount:'',
     }
   });
@@ -78,16 +81,15 @@ export default function Edit({params}) {
   });
 
    const [payment, setPayment] = useState({
-    childRegistration:{
-      payed:'',
+      id:'',
+      isPayed:'TRUE',
       lastPaymentDate:'',
-      paymentMethode:'',
-      amount:'',
-    }
+      PaymentMethode:'',
+      Amount:'',
    })
 
   const calculateReduction = () => {
-    switch (payment.childRegistration.amount) {
+    switch (payment.Amount) {
       case '13000.00':
         return 0;
       case '24700.00':
@@ -103,7 +105,7 @@ export default function Edit({params}) {
     }
   };
   const calculatePrice = () => {
-    switch (payment.childRegistration.amount) {
+    switch (payment.Amount) {
       case '13000.00':
         return 13000.00;
       case '24700.00':
@@ -171,6 +173,11 @@ export default function Edit({params}) {
             ...filteredParentData
           });
 
+          setPayment({
+              ...payment, // Keep existing properties
+              id: innitchild.id // Set the id to the fetched childRegistration id
+          });
+
         } catch (error) {
           console.error('Error fetching child or parent data:', error);
         }
@@ -205,10 +212,7 @@ const handlePaymentChange = (e) => {
   const { name, value } = e.target;
   setPayment(prevPayment => ({
     ...prevPayment,
-    childRegistration: {
-      ...prevPayment.childRegistration,
       [name]: value
-    }
   }));
 };
 
@@ -257,8 +261,8 @@ const handleSavechildRegistration = async () => {
   const confirmation = window.confirm('Are you sure you want to save these changes ?');
     if (confirmation) {
       try {
-        await axios.put(``);
-        console.log('');
+        const saveResponse = await axios.post(`http://localhost:8081/Register/updateReg`, payment);
+        console.log('child Registration has been updated successfully !! : ', payment);
       } catch (error) {
         console.error('Error updating, data:', error, '\n please try again.');
       }
@@ -568,17 +572,17 @@ const handleSavechildRegistration = async () => {
                       <div className='formGroup'>
                         <label>payment Methode:</label>
                         <div className="text">
-                        <select className="input" name='paymentMethode' onChange={handlePaymentChange} value={payment.childRegistration.paymentMethode}>
+                        <select className="input" name='PaymentMethode' onChange={handlePaymentChange} value={payment.PaymentMethode} required>
                           <option className="input" value=''> --- </option>
                           <option className="input" value='CASH'>Cash</option>
-                          <option className="input" value='CreditCard'>Credit Card</option>
+                          <option className="input" value='CREDIT-CARD'>Credit Card</option>
                         </select>
                         </div>
                       </div>
                       <div className='formGroup'>
                         <label>Payment Choice:</label>
                         <div className="text">
-                        <select className="input" name='amount' onChange={handlePaymentChange} value={payment.childRegistration.amount}>
+                        <select className="input" name='Amount' onChange={handlePaymentChange} value={payment.Amount} required>
                           <option className="input" value=''>-- 1 month = 13000.00 (DZD) --</option>
                           <option className="input" value='13000.00'>1 month</option>
                           <option className="input" value='24700.00'>2 months (-5%)</option>
@@ -588,11 +592,17 @@ const handleSavechildRegistration = async () => {
                         </select>
                         </div>
                       </div>
+                      <div className='formGroup'>
+                        <label>Set Current Payment Date:</label>
+                        <div className="text">
+                        <input className='input' type='date' name='lastPaymentDate' onChange={handlePaymentChange} value={payment.lastPaymentDate} required/>
+                        </div>
+                      </div>
                     </div>
                     <div className='halfEdit'>
                         <div className='payementinfo'>
                           <p>Registration fees</p>
-                          <p>(DZD) {payment.childRegistration.amount ? price : "0.00"}</p>
+                          <p>(DZD) {payment.Amount ? price : "0.00"}</p>
                         </div>
                         <div className='payementinfo'>
                           <p>reduction</p>
@@ -604,7 +614,7 @@ const handleSavechildRegistration = async () => {
                         </div>
                         <div className='payementinfo'>
                           <h3>Total :</h3>
-                          <h4>(DZD) {payment.childRegistration.amount ? (payment.childRegistration.amount) : "0.00"}</h4>
+                          <h4>(DZD) {payment.Amount ? (payment.Amount) : "0.00"}</h4>
                         </div>
                         <div className='formGroup'>
                           <label></label>

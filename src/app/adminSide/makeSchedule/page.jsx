@@ -2,12 +2,14 @@
 
 import Navbar from '../../../component/navbar/Navbar';
 import Sidebar from '../../../component/sidebar/Sidebar';
+import Calender from './Calender';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 import moment from 'moment';
 import { useRouter } from 'next/Navigation';
 import './makeSchedule.css'
+
 
 const Page = () => {
  
@@ -23,6 +25,7 @@ const Page = () => {
             <div className='title'>
               <h2>make schedule</h2>
             </div>
+            <Calender />
           </div>
         </div>
       </div>

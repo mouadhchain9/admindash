@@ -8,7 +8,7 @@ const StaffTable = ({ staff, filterType }) => {
   const [updatedStaff, setUpdatedStaff] = useState(staff);
 
   // Filter out staff with the role "PARENT"
-  const filteredStaff = updatedStaff.filter(member => member.roles !== 'PARENT');
+  const filteredStaff = updatedStaff.filter(member => member.roles !== 'PARENT' && member.roles !== 'ADMIN');
 
   // Apply additional filtering based on filterType
   const displayedStaff = filterType ? filteredStaff.filter(member => member.roles === filterType) : filteredStaff;
@@ -54,10 +54,10 @@ const StaffTable = ({ staff, filterType }) => {
               <td>{staff.email}</td>
               <td>{staff.phoneNumber}</td>
               <td>
-                <button className="btn">
-                  <Link href={'./manageStaff/' + staff.id }>edit</Link>
+                <button className="validate tableBtn">
+                  <Link  className="link" href={'./manageStaff/' + staff.id }>edit</Link>
                 </button>
-                <button className="btn" onClick={() => handleDelete(staff.id)}>delete</button>
+                <button className="delete tableBtn" onClick={() => handleDelete(staff.id)}>delete</button>
               </td>
             </tr>
           ))}     
