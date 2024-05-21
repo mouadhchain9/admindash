@@ -1,0 +1,52 @@
+.logo {
+    padding: 20px 10px 20px 20px;
+    background-color: #F86A9A;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: pink;
+}
+.logo{
+    text-align: center;
+    color: #27374d;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+.logo .icon{
+    font-size: 1.4rem;
+
+}
+.menu--list{
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    width: 300px;
+}
+.menu--list .item{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 25px 20px;
+    border-radius: 0px 0px 25px 0px;
+    transition: 0.3s ease-in-out;
+    color: #811331;
+
+
+}
+
+.menu--list .item:hover{
+    background: #F86A9A;
+    color: #dde6ed;
+    
+}
+
+.menu--list .item:active {
+    background: #F86A9A;
+    color: #dde6ed;
+}

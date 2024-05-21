@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.content {
+    position: relative;
+    left:300px;
+    width: calc(100% - 300px);
+    height: 100vh;
+    background-color:#fafafa;
+    overflow: hidden;
+
+}
+
+.mainContent {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.dashboard {
+    width: 300px;
+    position: fixed;
+}
+
+/* ------------------------------------------------------------ */
+.tableContainer {
+    /*border: 1px solid black;*/
+    color: black;
+    min-height: 70vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /*border-radius: 20px;*/
+    overflow: hidden;
+    margin-bottom: 117px;
+}
+
+.title {
+    display: flex;
+    width: 90%;
+    padding: 10px 0 20px 0;
+
+    h2 {
+        margin-left: 20px;
+        padding : 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    }
+}
+
+
+.subTableContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:hidden;
+    min-height: 500px;
+ 
+}
+/*/////////////        transfered to ChildTable.css       ////////////////*//*
+ 
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width:400px;
+    width: calc(100% - 40px);
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+caption {
+    margin-bottom: 20px;
+}
+
+
+
+thead tr {
+    background-color: #009879;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid lightgrey;
+}
+
+tbody tr:nth-of-type(even)  {
+    background-color: #f3f3f3;
+}
+tbody tr:last-of-type  {
+    border-bottom: 2px solid #009879;
+}
+*/
+.toggleWindow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .btnContainer {
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+        background-color: #aeeeee;
+
+        .toggleBtn {
+            font-size: 18px;
+            color: white;
+            background: transparent;
+            border-width: 0px;
+            padding: 30px;
+            width: 100%;
+            height: 100%;
+            transition: box-shadow 0.5s, color 0.25s;
+        }
+        .toggleBtn:hover,
+        .toggleBtn:focus {
+            box-shadow: inset 0 -81px 0 0 lightblue; /*inside fill color*/
+            border-color: lightblue; /*border fill color*/
+            color: white; /* #dde6ed */
+        }
+
+    }
+}
+
+
+.NewsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+}
+
+.NewsItem {
+    min-width: 270px;
+    max-width: 270px;
+    height: 620px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+
+}
+
+.NewsItem:hover {
+  transform: scale(1.05);
+}
+
+.NewsItem img {
+  width: 100%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.NewsItem .content2 {
+  padding: 1rem;
+}
+
+.NewsItem .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--pink);
+  margin-bottom: 1rem;
+}
+
+.NewsItem .description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.NewsItem .date {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.NewsItem .price {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.NewsItem .deleteButton {
+  margin-top: 1rem;
+  margin-left: 15px;
+}
+
+.NewsItem .deleteButton button {
+    border: none;
+  background-color: #f6e05e;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.NewsItem .deleteButton button:hover {
+  background-color: #f59e0b;
+}
+
+
+
+.NewsCreationContainer {
+
+    border: 1px solid lightgrey;
+    margin-top: 40px;
+    padding: 10px 0;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.subContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly ;
+    width:100%;
+
+}
+
+.secondHalf {
+    width: 40%;
+}
+
+.firstHalf {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    border-right: 2px dotted lightgrey;
+    padding: 40px 0;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+  label {
+    font-weight: 500;
+    margin-left: 20px;
+  }
+}
+
+
+.text {
+  padding : 10px 10px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow:0 5px 5px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font: 'Saira Semi Condensed', sans-serif;
+}
+
+.input,
+.comment {
+  width :100%;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 100;
+  color: grey;
+  font: 'Saira Semi Condensed', sans-serif;
+}
+
+.input:focus,
+.comment:focus {
+  border: none;
+  outline: none;
+}
+
+
+
+.comment {
+    resize: none;
+}
+
+
+.formButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: calc(100% - 20px);
+  padding-top: 33px;
+
+  .btnBox{
+    display: flex;
+    align-items: center;
+    width: 70px;
+    height: 31px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow:0 5px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    button {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      font: 'Saira Semi Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .cancel {
+        text-decoration: none;
+        color:black;
+        .cancelBtn {
+            text-decoration: none;
+            color:black;
+        }
+    }
+
+
+    .save:hover {
+      background-color: #7CFC00;
+      color: white;
+    }
+
+    .save:active {
+      background: #018749;
+      box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    .cancel:hover {
+      background-color: #FF033E;
+      .cancelBtn {
+            color: white;
+        }
+    }
+    .cancel:active {
+      background: #D2122E;
+      box-shadow:0 5px 5px rgba(0, 0, 0, 0.5);
+    }
+  } 
+}
