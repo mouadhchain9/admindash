@@ -1,0 +1,97 @@
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width:400px;
+    width: calc(100% - 40px);
+    text-align: left;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+caption {
+    margin-bottom: 20px;
+}
+
+
+
+thead tr {
+    background-color: #009879;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid lightgrey;
+}
+
+tbody tr:nth-of-type(even)  {
+    background-color: #f3f3f3;
+}
+tbody tr:last-of-type  {
+    border-bottom: 2px solid #009879;
+}
+
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e6e6e6;
+    color: black;
+    padding: 10px 0;
+    width : 100%;
+    min-height: 600px;
+    overflow: hidden;
+    text-shadow: 3px 0 5px grey,0 3px 5px grey,-3px 0 5px grey,0 -3px 5px grey;
+}
+
+p {
+    
+}
+
+
+.btn {
+    color: black;
+    text-decoration: none;
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+
+
+.tableBtn {
+    padding: 10px;
+    border:none;
+    background-color: lightblue;
+    border-radius: 5px;
+    margin: 5px;
+    transition: box-shadow 0.5s, color 0.25s;
+    font-weight: bold;
+    text-decoration: none;
+
+    .link {
+        text-decoration: none;
+        color: black;
+        transition: box-shadow 0.5s, color 0.25s;
+    }
+}
+.delete:hover {
+    background-color: red;
+    color: white;
+}
+.validate:hover{
+    background-color: #00FF40;
+    color: white;
+
+    .link {
+        color: white;
+    }
+}

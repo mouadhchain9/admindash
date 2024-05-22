@@ -1,0 +1,40 @@
+.subProfileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:hidden;
+    min-height: 500px;
+    justify-content: center;
+}
+
+.btnContainer {
+    text-align: center;
+}
+
+
+.btn2 {
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+
+.btn2:hover {
+    background-color: #F5F5F5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn2:active {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.message2  {
+    color: black;
+    padding: 10px 10px;
+    overflow: hidden;
+    text-shadow: 3px 0 5px lightgrey,0 3px 5px lightgrey,-3px 0 5px lightgrey,0 -3px 5px lightgrey;
+}
