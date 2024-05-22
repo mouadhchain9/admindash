@@ -89,51 +89,51 @@ export default function ChildDetail({params}) {
             </div>
             <div className='profilesContainer'>
               <div className='toggleWindow'>
-                  <div className='btnContainer'>
-                    <button className='toggleBtn'
-                      style={{
-                        background: activeBtn === "educative" ? 'lightblue' : 'transparent',
-                        textShadow: activeBtn === "educative" ? '3px 0 5px white,0 3px 5px white,-3px 0 5px white,0 -3px 5px white' : 'none'
-                      }}
-                      onClick={() => {
-                        setActiveBtn("educative");
-                      }}
-                    >educative</button>
-                  </div>
-                  <div className='btnContainer'>
-                    <button className='toggleBtn'
-                      style={{
-                        background: activeBtn === "psychologic" ? 'lightblue' : 'transparent',
-                        textShadow: activeBtn === "psychologic" ? '3px 0 5px white,0 3px 5px white,-3px 0 5px white,0 -3px 5px white' : 'none'
-                      }}
-                      onClick={() => {
-                        setActiveBtn("psychologic");
-                      }}
-                    >psychologic</button>
-                  </div>
-                  <div className='btnContainer'>
-                    <button className='toggleBtn'
-                      style={{
-                        background: activeBtn === "orthophonic" ? 'lightblue' : 'transparent',
-                        textShadow: activeBtn === "orthophonic" ? '3px 0 5px white,0 3px 5px white,-3px 0 5px white,0 -3px 5px white' : 'none'
-                      }}
-                      onClick={() => {
-                        setActiveBtn("orthophonic");
-                      }}
-                    >orthophonic</button>
-                  </div>
+                <div className='btnContainer'>
+                  <button className='toggleBtn'
+                    style={{
+                      background: activeBtn === "educative" ? 'lightblue' : 'transparent',
+                      textShadow: activeBtn === "educative" ? '3px 0 5px white,0 3px 5px white,-3px 0 5px white,0 -3px 5px white' : 'none'
+                    }}
+                    onClick={() => {
+                      setActiveBtn("educative");
+                    }}
+                  >educative</button>
                 </div>
-                <div className='subProfileContainer'>
-                  {activeBtn === "educative" && (
-                    <Profile profiles={profiles} type="EDUCATIVE" />
-                  )}
-                  {activeBtn === "psychologic" && (
-                    <Profile profiles={profiles} type="PSYCHOLOGY" />
-                  )}
-                  {activeBtn === "orthophonic" && (
-                    <Profile profiles={profiles} type="ORTHOPHONY" />
-                  )}
+                <div className='btnContainer'>
+                  <button className='toggleBtn'
+                    style={{
+                      background: activeBtn === "psychologic" ? 'lightblue' : 'transparent',
+                      textShadow: activeBtn === "psychologic" ? '3px 0 5px white,0 3px 5px white,-3px 0 5px white,0 -3px 5px white' : 'none'
+                    }}
+                    onClick={() => {
+                      setActiveBtn("psychologic");
+                    }}
+                  >psychologic</button>
                 </div>
+                <div className='btnContainer'>
+                  <button className='toggleBtn'
+                    style={{
+                      background: activeBtn === "orthophonic" ? 'lightblue' : 'transparent',
+                      textShadow: activeBtn === "orthophonic" ? '3px 0 5px white,0 3px 5px white,-3px 0 5px white,0 -3px 5px white' : 'none'
+                    }}
+                    onClick={() => {
+                      setActiveBtn("orthophonic");
+                    }}
+                  >orthophonic</button>
+                </div>
+              </div>
+              <div className='subProfileContainer'>
+                {activeBtn === "educative" && (
+                  <Profile profiles={profiles} type="EDUCATIONAL" id={params.childDetail}/>
+                )}
+                {activeBtn === "psychologic" && (
+                  <Profile profiles={profiles} type="PSYCHOLOGY" id={params.childDetail}/>
+                )}
+                {activeBtn === "orthophonic" && (
+                  <Profile profiles={profiles} type="ORTHOPHONY" id={params.childDetail}/>
+                )}
+              </div>
             </div>
           </div>
          

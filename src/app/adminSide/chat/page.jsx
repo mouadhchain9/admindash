@@ -47,14 +47,14 @@ const [parentChat, setParentChat] = useState();
                   {parentChat ? (
                       <div id="talkjs-container"
                        style={{width: '100%', margin: '30px', height: '500px'}}>
-                          <Session appId="tvhi8yLf" userId="frank">
+                          <Session appId="tVXZombw" userId="frank">
                               <Inbox className="chat-container" style={{width: '100%', height: '100%' ,padding: '10px'}}/>
                           </Session>
                       </div>
                   ) : (
                       <div id="talkjs-container" 
                       style={{width: '100%', margin: '30px', height: '500px'}}>
-                          <Session appId="tvhi8yLf" userId="sample_user_sebastian">
+                          <Session appId="tVXZombw" userId="sample_user_sebastian">
                               <Inbox className="chat-container" style={{width: '100%', height: '100%' ,padding: '10px'}}/>
                           </Session>
                       </div>

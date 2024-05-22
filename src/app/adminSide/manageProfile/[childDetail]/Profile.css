@@ -1,11 +1,4 @@
-.subProfileContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow:hidden;
-    min-height: 500px;
-    justify-content: center;
-}
+
 
 .btnContainer {
     text-align: center;
@@ -37,4 +30,9 @@
     padding: 10px 10px;
     overflow: hidden;
     text-shadow: 3px 0 5px lightgrey,0 3px 5px lightgrey,-3px 0 5px lightgrey,0 -3px 5px lightgrey;
+}
+
+
+.Prodesc {
+    width:100%;
 }
